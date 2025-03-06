@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Profile Picture</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="main-container p-10 min-h-screen relative bg-cover bg-center flex flex-col items-center justify-center"
+        style="background-image: url('https://images.unsplash.com/photo-1718202248232-0cdbc15d29b2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <!-- Content -->
+        <div class="container relative w-full max-w-lg bg-white p-8 sm:p-10 rounded-lg shadow-xl z-10 text-center">
+            <h2 class="text-2xl font-bold text-gray-900 mb-5">Upload Profile Picture</h2>
+            
+            <!-- Upload Form -->
+            <div class="form-container border border-gray-300 p-6 rounded-md bg-gray-50">
+                <form action="/upload-profile-picture" method="post" enctype="multipart/form-data" class="flex flex-col gap-4">
+                    <!-- <label class="cursor-pointer flex flex-col items-center justify-center p-5 border-2 border-dashed border-gray-400 rounded-lg bg-white hover:border-gray-600 transition">
+                        <span class="text-gray-500">Click to upload or drag and drop</span>
+                        <input type="file" name="profile_picture" class="hidden" accept="image/*">
+                    </label> -->
+                    <input type="file" name="profile_picture">
+                    <button type="submit"
+                        class="px-6 py-3 bg-sky-500 text-white rounded-md hover:bg-sky-700 transition font-medium cursor-pointer w-full">Upload</button>
+                </form>
+            </div>
+
+            <!-- Back Button -->
+            <div class="mt-5">
+                <a href="/profile" class="text-blue-600 hover:underline">Back to Profile</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

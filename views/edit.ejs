@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update content</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="main-container p-10 min-h-screen relative bg-cover bg-center flex flex-col items-center"
+        style="background-image: url('https://images.unsplash.com/photo-1718202248232-0cdbc15d29b2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <!-- Content -->
+        <div class="container relative w-full max-w-3xl bg-white p-6 sm:p-10 rounded-lg shadow-xl z-10">
+            <!-- Header Section -->
+            <div class="header flex justify-between items-center mb-6">
+                <div class="mid flex items-center gap-4">
+                    <div class="img h-16 w-16 bg-gray-300 rounded-full overflow-hidden border-2 border-gray-400">
+                        <!-- this needs to be an anchor tag -->
+                        <!-- <a href="/#"> -->
+                            <img src="/images/toupload/<%= user.profilepic %>" alt="Profile Picture"
+                                class="w-full h-full object-cover">
+                        <!-- </a> -->
+                    </div>
+                    <h2 class="text-gray-900 text-xl font-bold">Welcome, <%= user.name %></h2>
+                </div>
+            </div>
+
+            <!-- Post Form -->
+            <div class="form-container mt-6 border border-gray-300 p-5 rounded-lg bg-white/80 shadow-2xl backdrop-blur-md">
+                <h2 class="px-4 py-3 text-gray-400">Update your content</h2>
+                <form action="/update-post/<%= post._id %>" method="post" class="flex flex-col gap-3" enctype="multipart/form-data">
+                    <input type="file" class="w-full text-gray-700 border border-gray-300 rounded-md p-2"
+                        name="userSubmittedImage">
+                    <textarea name="content" rows="4"
+                        class="w-full text-gray-400 px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-purple-500 resize-none bg-white outline-none"
+                        placeholder="Write your post here..."><%= post.content %></textarea>
+                    <div class="flex gap-3">
+                        <input type="submit" value="Update Post"
+                            class="px-6 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-300 transition font-medium cursor-pointer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
